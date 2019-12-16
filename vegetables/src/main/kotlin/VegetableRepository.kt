@@ -4,4 +4,5 @@ interface VegetableRepository {
     fun empty()
     fun get(name: String): Vegetable
     fun delete(name: String)
+    fun update(vegetable: Vegetable)
 }

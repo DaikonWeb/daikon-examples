@@ -9,6 +9,7 @@ class BoxPage(val repository: VegetableRepository) : RouteAction {
             acc +
                     """
 <div><a href="/${it.name}" id="${it.name}">${it.name}</a></div>
+<div><a href="/${it.name}/edit" id="Edit${it.name}">change</a></div>
 <div>
     <form action="/${it.name}/delete" method="post">
         <button type="submit" id="Eat${it.name}">eat</button>

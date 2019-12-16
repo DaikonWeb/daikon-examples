@@ -23,4 +23,9 @@ class InMemoryVegetableRepository : VegetableRepository {
     override fun delete(name: String) {
         vegetables.removeIf {it.name == name}
     }
+
+    override fun update(vegetable: Vegetable) {
+        val index = vegetables.indexOfLast { it.name == vegetable.name }
+        vegetables[index] = vegetable
+    }
 }

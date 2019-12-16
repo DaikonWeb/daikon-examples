@@ -45,4 +45,14 @@ class InMemoryVegetableRepositoryTest {
 
         assertThat(repository.all()).isEqualTo(listOf(Vegetable("Onion", "so good")))
     }
+
+    @Test
+    fun edit() {
+        val repository = InMemoryVegetableRepository()
+        repository.add(Vegetable("Carrot", "so good"))
+
+        repository.update(Vegetable("Carrot", "quite good"))
+
+        assertThat(repository.get("Carrot")).isEqualTo(Vegetable("Carrot", "quite good"))
+    }
 }

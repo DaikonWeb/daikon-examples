@@ -50,6 +50,20 @@ class EndToEndTest {
         assertBox().doesNotContain("Onion")
     }
 
+    @Test
+    fun `edit a vegetable`() {
+        addToTheBox("Onion", "Very good")
+
+        browser.findElementById("EditOnion").click()
+
+        browser.findElementById("description").sendKeys("My favorite")
+        browser.findElementById("save").click()
+
+        browser.findElementById("Onion").click()
+
+        assertDetails().contains("My favorite")
+    }
+
     private fun assertDetails(): AbstractCharSequenceAssert<*, String> {
         assertThat(browser.pageSource).contains("Details of ")
         return assertThat(browser.pageSource)

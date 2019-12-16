@@ -34,6 +34,7 @@ class BoxPageTest {
         BoxPage(repository).handle(request, response)
 
         verify(response).write(contains("""<a href="/Daikon" id="Daikon">Daikon</a>"""))
+        verify(response).write(contains("""<a href="/Daikon/edit" id="EditDaikon">change</a>"""))
         verify(response).write(contains("""
     <form action="/Daikon/delete" method="post">
         <button type="submit" id="EatDaikon">eat</button>
