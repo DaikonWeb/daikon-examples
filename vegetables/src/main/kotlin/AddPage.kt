@@ -8,8 +8,8 @@ class AddPage : RouteAction{
 <html>
     <body>
         <form method="post" action="/add">
-            <input type="text" id="name" name="name">Name</input>
-            <input type="text" id="description" name="description">Description</input>
+            <input type="text" id="name" name="name">Name</input><br/>
+            <input type="text" id="description" name="description">Description</input><br/>
             <button type="submit" id="save">Add to box</button>
         </form>    
     </body>

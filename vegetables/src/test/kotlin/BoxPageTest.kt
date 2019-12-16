@@ -25,4 +25,13 @@ class BoxPageTest {
         verify(response).write(contains("""Daikon"""))
         verify(response).write(contains("""Carrot"""))
     }
+
+    @Test
+    fun `show add button`() {
+        whenever(repository.all()).thenReturn(emptyList())
+
+        BoxPage(repository).handle(request, response)
+
+        verify(response).write(contains("""<a href="/add">"""))
+    }
 }
