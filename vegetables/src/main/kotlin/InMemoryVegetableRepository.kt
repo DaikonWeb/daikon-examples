@@ -15,4 +15,8 @@ class InMemoryVegetableRepository : VegetableRepository {
     override fun empty() {
         vegetables.clear()
     }
+
+    override fun get(name: String): Vegetable {
+        return vegetables.single { it.name == name }
+    }
 }

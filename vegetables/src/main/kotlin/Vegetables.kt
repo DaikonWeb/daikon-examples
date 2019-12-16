@@ -7,10 +7,11 @@ class Vegetables {
     fun start() {
         val repository = InMemoryVegetableRepository()
         httpServer
-          .get("/", BoxPage(repository))
-          .get("/add", AddPage())
-          .post("/add", AddAction(repository))
-          .start()
+            .get("/", BoxPage(repository))
+            .get("/add", AddPage())
+            .post("/add", AddAction(repository))
+            .get("/:name", DetailsPage(repository))
+            .start()
     }
 
     fun stop() {

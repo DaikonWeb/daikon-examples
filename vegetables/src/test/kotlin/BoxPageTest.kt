@@ -4,7 +4,6 @@ import com.nhaarman.mockitokotlin2.whenever
 import daikon.Request
 import daikon.Response
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito
 import org.mockito.Mockito.contains
 
 class BoxPageTest {
@@ -22,8 +21,8 @@ class BoxPageTest {
 
         BoxPage(repository).handle(request, response)
 
-        verify(response).write(contains("""Daikon"""))
-        verify(response).write(contains("""Carrot"""))
+        verify(response).write(contains("""<a href="/Daikon" id="Daikon">Daikon</a>"""))
+        verify(response).write(contains("""<a href="/Carrot" id="Carrot">Carrot</a>"""))
     }
 
     @Test
@@ -32,6 +31,6 @@ class BoxPageTest {
 
         BoxPage(repository).handle(request, response)
 
-        verify(response).write(contains("""<a href="/add">"""))
+        verify(response).write(contains("""<a href="/add" id="add">"""))
     }
 }

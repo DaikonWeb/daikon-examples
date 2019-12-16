@@ -27,12 +27,17 @@ class EndToEndTest {
 
     @Test
     fun `add a vegetable and see it in the box`() {
-        browser.get("http://localhost:4545/add")
+        browser.get("http://localhost:4545")
+        browser.findElementById("add").click()
+
         browser.findElementById("name").sendKeys("Carrot")
         browser.findElementById("description").sendKeys("Is orange (or violet) and has a shape like a daikon but smaller")
         browser.findElementById("save").click()
 
         assertThat(browser.pageSource).contains("Vegetable box")
         assertThat(browser.pageSource).contains("Carrot")
+
+        browser.findElementById("Carrot").click()
+        assertThat(browser.pageSource).contains("Is orange (or violet) and has a shape like a daikon but smaller")
     }
 }
