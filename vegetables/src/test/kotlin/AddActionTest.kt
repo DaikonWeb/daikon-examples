@@ -28,6 +28,6 @@ class AddActionTest {
 
         AddAction(repository).handle(request, response)
 
-        verify(repository).save(Vegetable("Garlic", "Useful against vampires"))
+        verify(repository).add(Vegetable("Garlic", "Useful against vampires"))
     }
 }

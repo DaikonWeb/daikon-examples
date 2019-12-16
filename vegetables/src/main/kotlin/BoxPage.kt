@@ -8,6 +8,7 @@ class BoxPage(val repository: VegetableRepository) : RouteAction {
         response.write("""
 <html>
     <body>
+        <h1>Vegetable box</h1>
         <div>""")
         repository.all().forEach {
             response.write("""<div>${it.name}</div>""")

@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.openqa.selenium.phantomjs.PhantomJSDriver
 
-@Disabled
 class EndToEndTest {
 
     private lateinit var browser: PhantomJSDriver

@@ -1,4 +1,5 @@
 interface VegetableRepository {
-    fun save(vegetable: Vegetable)
+    fun add(vegetable: Vegetable)
     fun all(): List<Vegetable>
+    fun empty()
 }

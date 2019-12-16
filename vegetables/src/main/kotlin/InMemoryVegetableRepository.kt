@@ -1,9 +1,18 @@
 class InMemoryVegetableRepository : VegetableRepository {
-    override fun save(vegetable: Vegetable) {
 
+    companion object {
+        val vegetables = mutableListOf<Vegetable>()
+    }
+
+    override fun add(vegetable: Vegetable) {
+        vegetables.add(vegetable)
     }
 
     override fun all(): List<Vegetable> {
-        return emptyList()
+        return vegetables
+    }
+
+    override fun empty() {
+        vegetables.clear()
     }
 }
