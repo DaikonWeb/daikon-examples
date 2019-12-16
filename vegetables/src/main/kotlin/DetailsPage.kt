@@ -10,7 +10,7 @@ class DetailsPage(private val repository: VegetableRepository) : RouteAction {
         response.write("""
 <html>
     <body>
-        <h1>${vegetable.name}</h1>
+        <h1>Details of ${vegetable.name}</h1>
         <div>
             <div>${vegetable.name}</div>
             <div>${vegetable.description}</div>

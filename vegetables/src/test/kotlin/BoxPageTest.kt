@@ -14,15 +14,32 @@ class BoxPageTest {
 
     @Test
     fun `show list`() {
-        whenever(repository.all()).thenReturn(listOf(
-            Vegetable("Daikon", "The best one"),
-            Vegetable("Carrot", "The most orange")
-        ))
+        whenever(repository.all()).thenReturn(
+            listOf(
+                Vegetable("Daikon", "The best one"),
+                Vegetable("Carrot", "The most orange")
+            )
+        )
+
+        BoxPage(repository).handle(request, response)
+
+        verify(response).write(contains("""id="Daikon""""))
+        verify(response).write(contains("""id="Carrot""""))
+    }
+
+    @Test
+    fun `show links`() {
+        whenever(repository.all()).thenReturn(listOf(Vegetable("Daikon", "The best one")))
 
         BoxPage(repository).handle(request, response)
 
         verify(response).write(contains("""<a href="/Daikon" id="Daikon">Daikon</a>"""))
-        verify(response).write(contains("""<a href="/Carrot" id="Carrot">Carrot</a>"""))
+        verify(response).write(contains("""
+    <form action="/Daikon/delete" method="post">
+        <button type="submit" id="EatDaikon">eat</button>
+    </form>"""
+            )
+        )
     }
 
     @Test

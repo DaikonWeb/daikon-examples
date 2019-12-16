@@ -34,4 +34,15 @@ class InMemoryVegetableRepositoryTest {
 
         assertThat(repository.all()).isEmpty()
     }
+
+    @Test
+    fun delete() {
+        val repository = InMemoryVegetableRepository()
+        repository.add(Vegetable("Carrot", "so good"))
+        repository.add(Vegetable("Onion", "so good"))
+
+        repository.delete("Carrot")
+
+        assertThat(repository.all()).isEqualTo(listOf(Vegetable("Onion", "so good")))
+    }
 }

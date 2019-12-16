@@ -11,6 +11,7 @@ class Vegetables {
             .get("/add", AddPage())
             .post("/add", AddAction(repository))
             .get("/:name", DetailsPage(repository))
+            .post("/:name/delete", DeleteAction(repository))
             .start()
     }
 

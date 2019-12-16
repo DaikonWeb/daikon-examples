@@ -3,4 +3,5 @@ interface VegetableRepository {
     fun all(): List<Vegetable>
     fun empty()
     fun get(name: String): Vegetable
+    fun delete(name: String)
 }

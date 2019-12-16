@@ -19,4 +19,8 @@ class InMemoryVegetableRepository : VegetableRepository {
     override fun get(name: String): Vegetable {
         return vegetables.single { it.name == name }
     }
+
+    override fun delete(name: String) {
+        vegetables.removeIf {it.name == name}
+    }
 }

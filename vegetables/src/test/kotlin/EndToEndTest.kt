@@ -1,8 +1,8 @@
 import io.github.bonigarcia.wdm.WebDriverManager
+import org.assertj.core.api.AbstractCharSequenceAssert
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.openqa.selenium.phantomjs.PhantomJSDriver
 
@@ -27,17 +27,46 @@ class EndToEndTest {
 
     @Test
     fun `add a vegetable and see it in the box`() {
+        addToTheBox("Carrot", "So good")
+
+        assertBox().contains("Carrot")
+    }
+
+    @Test
+    fun `see vegetable details`() {
+        addToTheBox("Carrot", "Is orange (or violet) and has a shape like a daikon but smaller")
+
+        browser.findElementById("Carrot").click()
+
+        assertDetails().contains("Is orange (or violet) and has a shape like a daikon but smaller")
+    }
+
+    @Test
+    fun `eat a vegetable`() {
+        addToTheBox("Onion", "So good")
+
+        browser.findElementById("EatOnion").click()
+
+        assertBox().doesNotContain("Onion")
+    }
+
+    private fun assertDetails(): AbstractCharSequenceAssert<*, String> {
+        assertThat(browser.pageSource).contains("Details of ")
+        return assertThat(browser.pageSource)
+    }
+
+    private fun assertBox(): AbstractCharSequenceAssert<*, String> {
+        assertThat(browser.pageSource).contains("Vegetable box")
+        return assertThat(browser.pageSource)
+    }
+
+    private fun addToTheBox(name: String, description: String) {
         browser.get("http://localhost:4545")
         browser.findElementById("add").click()
 
-        browser.findElementById("name").sendKeys("Carrot")
-        browser.findElementById("description").sendKeys("Is orange (or violet) and has a shape like a daikon but smaller")
+        browser.findElementById("name").sendKeys(name)
+        browser.findElementById("description")
+            .sendKeys(description)
         browser.findElementById("save").click()
-
-        assertThat(browser.pageSource).contains("Vegetable box")
-        assertThat(browser.pageSource).contains("Carrot")
-
-        browser.findElementById("Carrot").click()
-        assertThat(browser.pageSource).contains("Is orange (or violet) and has a shape like a daikon but smaller")
     }
 }
