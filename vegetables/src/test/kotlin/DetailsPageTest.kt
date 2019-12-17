@@ -4,7 +4,6 @@ import com.nhaarman.mockitokotlin2.whenever
 import daikon.Request
 import daikon.Response
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito
 import org.mockito.Mockito.contains
 
 class DetailsPageTest {
@@ -14,7 +13,7 @@ class DetailsPageTest {
     private val repository: VegetableRepository = mock()
 
     @Test
-    fun name() {
+    fun render() {
         whenever(request.param(":name")).thenReturn("Daikon")
         whenever(repository.get("Daikon")).thenReturn(Vegetable("Daikon", "white"))
 

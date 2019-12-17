@@ -1,11 +1,10 @@
 import daikon.HttpServer
 
-class Vegetables {
+class Vegetables(private val repository: VegetableRepository) {
 
     private val httpServer = HttpServer()
 
     fun start() {
-        val repository = InMemoryVegetableRepository()
         httpServer
             .get("/", BoxPage(repository))
             .get("/add", AddPage())
@@ -14,6 +13,7 @@ class Vegetables {
             .post("/:name/delete", DeleteAction(repository))
             .get("/:name/edit", EditPage(repository))
             .post("/:name/edit", EditAction(repository))
+            .assets("/public/*")
             .start()
     }
 

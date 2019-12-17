@@ -15,7 +15,7 @@ class EndToEndTest {
     fun before() {
         WebDriverManager.phantomjs().setup()
         browser = PhantomJSDriver()
-        vegetables = Vegetables()
+        vegetables = Vegetables(InMemoryVegetableRepository())
         vegetables.start()
     }
 
