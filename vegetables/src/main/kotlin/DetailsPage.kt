@@ -11,7 +11,8 @@ class DetailsPage(private val repository: VegetableRepository) : RouteAction {
 <div>
     <div>${vegetable.name}</div>
     <div>${vegetable.description}</div>
-</div>            
+</div>
+<a href="/" class="btn">Back to the box</a>
         """).text())
     }
 }

@@ -9,7 +9,7 @@ class EditPage(private val repository: VegetableRepository) : RouteAction{
         response.write(Html("Edit ${vegetable.name}", """
 <form method="post" action="/${vegetable.name}/edit">
     <input type="text" id="description" name="description" value="${vegetable.description}">Description</input><br/>
-    <button type="submit" id="save">Change</button>
+    <button type="submit" id="save" class="btn">Change</button>
 </form>
         """).text())
     }

@@ -35,21 +35,21 @@ body {
   font-size: 22px;
 }
 
-a, a:link, a:visited, a:hover, a:active, button {
+a, a:link, a:visited, a:hover, a:active, button, .btn {
     color: #4CAF50;
 }
 
 button {
-  background: none!important;
+  background: none;
   border: none;
-  padding: 0!important;
+  padding: 0;
   text-decoration: underline;
   cursor: pointer;
   font-family: arial, sans-serif;
   font-size: 22px;
 }
 
-a.btn {
+a.btn, .btn {
     border: none;
     display: inline-block;
     padding: 8px 16px;
