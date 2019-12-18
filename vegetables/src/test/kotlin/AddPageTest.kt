@@ -17,6 +17,6 @@ class AddPageTest {
         verify(response).write(contains("""<form method="post" action="/add">"""))
         verify(response).write(contains("""<input type="text" id="name" name="name">Name</input>"""))
         verify(response).write(contains("""<input type="text" id="description" name="description">Description</input>"""))
-        verify(response).write(contains("""<button type="submit" id="save">Add to box</button>"""))
+        verify(response).write(contains("""<button type="submit" id="save""""))
     }
 }

@@ -36,9 +36,9 @@ class BoxPageTest {
         verify(response).write(contains("""<a href="/Daikon" id="Daikon">Daikon</a>"""))
         verify(response).write(contains("""<a href="/Daikon/edit" id="EditDaikon">change</a>"""))
         verify(response).write(contains("""
-        <form action="/Daikon/delete" method="post" class="action">
-            <button type="submit" id="EatDaikon">eat</button>
-        </form>"""
+                <form action="/Daikon/delete" method="post" class="action">
+                    <button type="submit" id="EatDaikon">eat</button>
+                </form>"""
             )
         )
     }

@@ -23,6 +23,6 @@ class EditPageTest {
 
         verify(response).write(contains("""<form method="post" action="/Carrot/edit">"""))
         verify(response).write(contains("""<input type="text" id="description" name="description" value="mmm">Description</input>"""))
-        verify(response).write(contains("""<button type="submit" id="save">Change</button>"""))
+        verify(response).write(contains("""<button type="submit" id="save""""))
     }
 }
