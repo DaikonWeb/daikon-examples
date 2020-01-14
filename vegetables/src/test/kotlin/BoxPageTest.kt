@@ -21,7 +21,7 @@ class BoxPageTest {
             )
         )
 
-        BoxPage(repository).handle(request, response)
+        BoxPage(repository).handle(request, response, mock())
 
         verify(response).write(contains("""id="Daikon""""))
         verify(response).write(contains("""id="Carrot""""))
@@ -31,7 +31,7 @@ class BoxPageTest {
     fun `show links`() {
         whenever(repository.all()).thenReturn(listOf(Vegetable("Daikon", "The best one")))
 
-        BoxPage(repository).handle(request, response)
+        BoxPage(repository).handle(request, response, mock())
 
         verify(response).write(contains("""<a href="/Daikon" id="Daikon">Daikon</a>"""))
         verify(response).write(contains("""<a href="/Daikon/edit" id="EditDaikon">change</a>"""))
@@ -47,7 +47,7 @@ class BoxPageTest {
     fun `show add button`() {
         whenever(repository.all()).thenReturn(emptyList())
 
-        BoxPage(repository).handle(request, response)
+        BoxPage(repository).handle(request, response, mock())
 
         verify(response).write(contains("""<a href="/add" id="add" class="btn">"""))
     }

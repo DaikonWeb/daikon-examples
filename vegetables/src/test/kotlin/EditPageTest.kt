@@ -3,9 +3,7 @@ import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import daikon.Request
 import daikon.Response
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
-import org.mockito.Mockito
 import org.mockito.Mockito.contains
 
 class EditPageTest {
@@ -19,7 +17,7 @@ class EditPageTest {
         whenever(request.param(":name")).thenReturn("Carrot")
         whenever(repository.get("Carrot")).thenReturn(Vegetable("Carrot", "mmm"))
 
-        EditPage(repository).handle(request, response)
+        EditPage(repository).handle(request, response, mock())
 
         verify(response).write(contains("""<form method="post" action="/Carrot/edit">"""))
         verify(response).write(contains("""<input type="text" id="description" name="description" value="mmm">Description</input>"""))

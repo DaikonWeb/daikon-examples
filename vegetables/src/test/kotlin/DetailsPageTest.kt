@@ -17,7 +17,7 @@ class DetailsPageTest {
         whenever(request.param(":name")).thenReturn("Daikon")
         whenever(repository.get("Daikon")).thenReturn(Vegetable("Daikon", "white"))
 
-        DetailsPage(repository).handle(request, response)
+        DetailsPage(repository).handle(request, response, mock())
 
         verify(response).write(contains("Daikon"))
         verify(response).write(contains("white"))

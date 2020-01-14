@@ -16,7 +16,7 @@ class AddActionTest {
         whenever(request.param("name")).thenReturn("Garlic")
         whenever(request.param("description")).thenReturn("Useful against vampires")
 
-        AddAction(repository).handle(request, response)
+        AddAction(repository).handle(request, response, mock())
 
         verify(response).redirect("/")
     }
@@ -26,7 +26,7 @@ class AddActionTest {
         whenever(request.param("name")).thenReturn("Garlic")
         whenever(request.param("description")).thenReturn("Useful against vampires")
 
-        AddAction(repository).handle(request, response)
+        AddAction(repository).handle(request, response, mock())
 
         verify(repository).add(Vegetable("Garlic", "Useful against vampires"))
     }

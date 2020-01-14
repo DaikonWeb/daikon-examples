@@ -15,7 +15,7 @@ class DeleteActionTest {
     fun `remove selected vegetable`() {
         whenever(request.param(":name")).thenReturn("Celery")
 
-        DeleteAction(repository).handle(request, response)
+        DeleteAction(repository).handle(request, response, mock())
 
         verify(repository).delete("Celery")
     }
@@ -24,7 +24,7 @@ class DeleteActionTest {
     fun `redirect to box`() {
         whenever(request.param("name")).thenReturn("Garlic")
 
-        DeleteAction(repository).handle(request, response)
+        DeleteAction(repository).handle(request, response, mock())
 
         verify(response).redirect("/")
     }

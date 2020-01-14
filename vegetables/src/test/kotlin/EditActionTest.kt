@@ -16,7 +16,7 @@ class EditActionTest {
         whenever(request.param(":name")).thenReturn("Celery")
         whenever(request.param("description")).thenReturn("mmm")
 
-        EditAction(repository).handle(request, response)
+        EditAction(repository).handle(request, response, mock())
 
         verify(repository).update(Vegetable("Celery", "mmm"))
     }
@@ -26,7 +26,7 @@ class EditActionTest {
         whenever(request.param(":name")).thenReturn("Garlic")
         whenever(request.param("description")).thenReturn("mmm")
 
-        EditAction(repository).handle(request, response)
+        EditAction(repository).handle(request, response, mock())
 
         verify(response).redirect("/")
     }

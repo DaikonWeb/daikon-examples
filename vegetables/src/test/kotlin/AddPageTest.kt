@@ -12,7 +12,7 @@ class AddPageTest {
 
     @Test
     fun `render page`() {
-        AddPage().handle(request, response)
+        AddPage().handle(request, response, mock())
 
         verify(response).write(contains("""<form method="post" action="/add">"""))
         verify(response).write(contains("""<input type="text" id="name" name="name">Name</input>"""))
