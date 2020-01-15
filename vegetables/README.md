@@ -2,8 +2,8 @@
 
 ![Daikon](./logo.svg)
 
-Vegetables is a simple CRUD web application that explain how to use Daikon.
-It's written with Test Driven Development so you can see how to tesk a Daikon project. 
+Vegetables is a simple CRUD web application that explains how to use Daikon.
+It's written with Test Driven Development so you can see how to test a Daikon project. 
 You can find:
 * end to end test with webdriver
 * unit tests of controllers and repository
