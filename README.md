@@ -2,8 +2,8 @@
 
 ![Daikon](./logo.svg)
 
-Here you can find some useful example of how to use daikon.
-* A simple CRUD application wrote with Test Driven Development: [Vegetables](https://github.com/DaikonWeb/daikon-examples/tree/master/vegetables)
+Here you can find some useful examples of how to use daikon.
+* A simple CRUD application written with Test Driven Development: [Vegetables](https://github.com/DaikonWeb/daikon-examples/tree/master/vegetables)
 
 ## Authors
 
