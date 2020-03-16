@@ -1,0 +1,29 @@
+service: vegetables-lambda
+
+package:
+  artifact: build/libs/vegetables-lambda-dev-all.jar
+
+provider:
+  name: aws
+  runtime: java11
+  stage: dev
+  region: eu-west-1
+
+functions:
+  home:
+    handler: vegetables.VegetablesHandler
+    events:
+      - http:
+          path: /
+          method: ANY
+  other:
+    handler: vegetables.VegetablesHandler
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+#      - alb:
+#          listenerArn: arn:aws:elasticloadbalancing:eu-west-1:xxxxxx:listener/app/xxxxxxxx/xxxxxx/xxxxx
+#          priority: 1
+#          conditions:
+#            path: /vegetables/*
