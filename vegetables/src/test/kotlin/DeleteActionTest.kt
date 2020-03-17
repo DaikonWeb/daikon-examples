@@ -1,8 +1,8 @@
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import daikon.Request
-import daikon.Response
+import daikon.core.Request
+import daikon.core.Response
 import org.junit.jupiter.api.Test
 
 class DeleteActionTest {

@@ -1,7 +1,7 @@
-import daikon.Context
-import daikon.Request
-import daikon.Response
-import daikon.RouteAction
+import daikon.core.Context
+import daikon.core.Request
+import daikon.core.Response
+import daikon.core.RouteAction
 import daikon.freemarker.html
 
 class EditPage(private val repository: VegetableRepository) : RouteAction{
