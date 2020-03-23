@@ -3,7 +3,9 @@
 ![Daikon](./logo.svg)
 
 Here you can find some useful examples of how to use daikon.
+
 * A simple CRUD application written with Test Driven Development: [Vegetables](https://github.com/DaikonWeb/daikon-examples/tree/master/vegetables)
+* A dead simple serverless app developed with [Daikon-Lambda](https://github.com/DaikonWeb/daikon-lambda)
 
 ## Authors
 
