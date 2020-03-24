@@ -2,9 +2,8 @@ package vegetables
 
 import daikon.lambda.HttpHandler
 
-
 class VegetablesHandler(
-    private val repository: FakeVegetableRepository = FakeVegetableRepository()
+    private val repository: VegetableRepository = FakeVegetableRepository()
 ) : HttpHandler() {
     override fun routing() {
         get("/", ListAction(repository))
