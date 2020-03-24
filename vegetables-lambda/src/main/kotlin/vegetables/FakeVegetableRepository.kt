@@ -20,6 +20,6 @@ class FakeVegetableRepository : VegetableRepository {
         return vegetables.single { equalsIgnoringCase(it, name) }
     }
 
-    private fun equalsIgnoringCase(it: Vegetable, name: String) =
-        it.name.toLowerCase() == name.toLowerCase()
+    private fun equalsIgnoringCase(vegetable: Vegetable, name: String) =
+        vegetable.name.toLowerCase() == name.toLowerCase()
 }
