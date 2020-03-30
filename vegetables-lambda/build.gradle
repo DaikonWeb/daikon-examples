@@ -22,8 +22,8 @@ repositories {
 
 dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.70'
-    compile 'com.github.DaikonWeb:daikon-lambda:0.1.1'
-    compile 'com.github.DaikonWeb:daikon-gson:1.2.2'
+    implementation 'com.github.DaikonWeb:daikon-lambda:0.1.1'
+    implementation 'com.github.DaikonWeb:daikon-gson:1.2.2'
 }
 
 task deploy(type: Exec, dependsOn: 'shadowJar') {
