@@ -6,6 +6,7 @@ class Vegetables(private val repository: VegetableRepository) {
 
     fun start() {
         httpServer
+            .assets("/public/*")
             .get("/", BoxPage(repository))
             .get("/add", AddPage())
             .post("/add", AddAction(repository))
@@ -13,7 +14,6 @@ class Vegetables(private val repository: VegetableRepository) {
             .post("/:name/delete", DeleteAction(repository))
             .get("/:name/edit", EditPage(repository))
             .post("/:name/edit", EditAction(repository))
-            .assets("/public/*")
             .start()
     }
 
